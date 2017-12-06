@@ -4,7 +4,6 @@ import android.animation.AnimatorSet;
 import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
-import android.animation.ValueAnimator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 //                viewAnim();
-                ObjectAnimator animator = nope(view);
+                ObjectAnimator animator = shakeEffect(view);
                 //设置动画重复的次数
 //                animator.setRepeatCount(ValueAnimator.INFINITE);
                 animator.start();
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ObjectAnimator animator = tada(view);
+                ObjectAnimator animator = multiEffect(view);
                 //设置动画重复的次数
 //                animator.setRepeatCount(ValueAnimator.INFINITE);
                 animator.start();
@@ -79,11 +78,11 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      * @return
      */
-    private ObjectAnimator tada(View view) {
-        return tada(view, 1f);
+    private ObjectAnimator multiEffect(View view) {
+        return multiEffect(view, 1f);
     }
 
-    private ObjectAnimator tada(View view, float shakeFactor) {
+    private ObjectAnimator multiEffect(View view, float shakeFactor) {
 
         PropertyValuesHolder pvhScaleX = PropertyValuesHolder.ofKeyframe(View.SCALE_X,
                 Keyframe.ofFloat(0f, 1f),
@@ -138,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      * @return
      */
-    private ObjectAnimator nope(View view) {
+    private ObjectAnimator shakeEffect(View view) {
         int delta = 8;
 
         PropertyValuesHolder pvhTranslateX = PropertyValuesHolder.ofKeyframe(View.TRANSLATION_X,
